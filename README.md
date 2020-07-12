@@ -30,3 +30,5 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
     `python tests.py`
 
 # Future Scope
+1. Youtube Data API Qouta is quite low for a day (10k queries), if we make a single call for search with snippet, it is counted as 100.
+2. Cron is running fine right now but keeping qouta in mind, quite tough to fetch a latest videos.
