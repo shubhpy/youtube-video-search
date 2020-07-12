@@ -1,8 +1,8 @@
 FROM python:3.6.7-slim
 
-RUN pip3 install --upgrade setuptools && \
-	apt-get update && \
-	apt-get install -y libpq-dev build-essential cron procps zip vim wget
+RUN pip3 install --upgrade pip
+
+RUN apt-get update && apt-get install -y cron vim
 
 #add project files to the usr/src/code folder
 COPY . /usr/src/code
@@ -15,7 +15,5 @@ WORKDIR /usr/src/code
 # Expose ports
 EXPOSE 8000
 
-RUN python manage.py crontab add
-
 # default command to execute
-CMD python manage.py runserver
+CMD python manage.py makemigrations && python manage.py migrate && python manage.py crontab add && python manage.py runserver 0.0.0.0:8000
