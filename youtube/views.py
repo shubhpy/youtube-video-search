@@ -8,7 +8,7 @@ from youtube.pagination import YoutubeVideoListPagination
 
 class YoutubeVideoViewSet(mixins.ListModelMixin, mixins.CreateModelMixin,
                           mixins.UpdateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet):
-    queryset = YoutubeVideo.objects
+    queryset = YoutubeVideo.objects.all()
     serializer_class = YoutubeVideoSerializer
     http_method_names = ['get', 'post', 'put', 'delete']
     pagination_class = YoutubeVideoListPagination
