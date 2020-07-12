@@ -2,10 +2,10 @@ from django.db import models
 
 
 class YoutubeVideo(models.Model):
+    videoId = models.CharField(unique=True, max_length=100)
     publishedAt = models.DateTimeField()
     title = models.CharField(max_length=1000)
     description = models.TextField()
-    videoId = models.CharField(max_length=100)
 
 
 class YoutubeVideoThumbails(models.Model):
@@ -23,7 +23,7 @@ class YoutubeVideoThumbails(models.Model):
         (MAXRES, MAXRES),
     )
 
-    youtubeVideoId = models.ForeignKey(YoutubeVideo, on_delete=models.CASCADE)
+    youtubeVideoId = models.ForeignKey(YoutubeVideo, related_name='thumbnails', on_delete=models.CASCADE)
     type = models.CharField(max_length=20, choices=TYPE_CHOICES, default=DEFAULT)
     url = models.URLField()
     width = models.PositiveIntegerField()
