@@ -28,3 +28,7 @@ class YoutubeVideoThumbails(models.Model):
     url = models.URLField()
     width = models.PositiveIntegerField()
     height = models.PositiveIntegerField()
+
+
+class CronConfig(models.Model):
+    startFromPublishedAt = models.DateTimeField()
