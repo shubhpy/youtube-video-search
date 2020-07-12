@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'youtube.apps.YoutubeConfig',
 ]
 
+CRONJOBS = [
+    ('*/1 * * * *', 'youtube.crons.fetch_videos.run', '>> /tmp/cronjob.log 2>&1')
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
