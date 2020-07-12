@@ -16,30 +16,16 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
 
     ### Terminal 1
 
-    `virtualenv shubhanshu_fmp_youtube_search -p python3`
-
-    `cd shubhanshu_fmp_youtube_search`
-
-    `source bin/activate`
-
-    extract zip content in this folder here, `youtube-video-search` folder from zip file should be extracted here
+    `git clone https://github.com/shubhpy/youtube-video-search.git`
 
     `cd youtube-video-search`
 
-    `pip install -r requirements.txt`
+    `docker build . -t fmp_youtube`
 
-    `python manage.py makemigrations`
-
-    `python manage.py migrate`
-
-    `python manage.py runserver`
+    `docker run -it -p 8000:8000 fmp_youtube`
 
     ### Terminal 2
-    `cd shubhanshu_interviews_booking`
-
-    `source bin/activate`
-
-    `cd ik_backend`
+    `cd youtube-video-search`
 
     `python tests.py`
 
