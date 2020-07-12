@@ -14,3 +14,7 @@ class YoutubeVideoSerializer(serializers.ModelSerializer):
     class Meta:
         model = YoutubeVideo
         fields = '__all__'
+
+
+class YoutubeSearchConsumer(serializers.Serializer):
+    q = serializers.CharField(required=True)
